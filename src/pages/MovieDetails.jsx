@@ -6,7 +6,8 @@ import { useAuth } from "../context/AuthContext";
 
 function MovieDetails() {
   const { id } = useParams();
-  const { token } = useAuth();
+  // Destructure 'user' from useAuth to check against existing reviews
+  const { token, user } = useAuth(); 
 
   const [movie, setMovie] = useState(null);
   const [review, setReview] = useState({ rating: 5, comment: "" });
@@ -14,7 +15,6 @@ function MovieDetails() {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    // Ensure your backend is sending the Review.User object in this response
     api.get(`/movies/${id}`).then((res) => setMovie(res.data));
   }, [id, refresh]);
 
@@ -30,6 +30,9 @@ function MovieDetails() {
       setError(e.response?.data?.error || "Failed to submit review");
     }
   };
+
+  // Logic: Check if the current logged-in user has already submitted a review for this movie
+  const hasReviewed = movie?.Reviews?.some((rev) => rev.user_id === user?.id);
 
   if (!movie) return <div className="p-8 text-center">Loading movie details...</div>;
 
@@ -78,8 +81,8 @@ function MovieDetails() {
         )}
       </div>
 
-      {/* Add Review Form */}
-      {token && (
+      {/* Conditional Rendering for Add Review Form */}
+      {token && !hasReviewed ? (
         <form onSubmit={handleSubmit} className="bg-white border border-blue-100 p-6 mt-10 rounded-xl shadow-sm">
           <h3 className="text-lg font-bold mb-4 text-gray-800 border-l-4 border-blue-600 pl-3">
             Add Your Review
@@ -115,6 +118,19 @@ function MovieDetails() {
             Post Review
           </button>
         </form>
+      ) : token && hasReviewed ? (
+        <div className="mt-10 p-6 bg-blue-50 border border-blue-100 rounded-xl text-center">
+          <p className="text-blue-800 font-semibold">
+            Thank you! You have already submitted a review for this movie.
+          </p>
+          <p className="text-blue-600 text-sm mt-1">
+            You can edit your existing review above.
+          </p>
+        </div>
+      ) : (
+        <div className="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-xl text-center">
+          <p className="text-gray-600">Please login to join the conversation and leave a review.</p>
+        </div>
       )}
     </div>
   );
