@@ -15,7 +15,7 @@ function Movies() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  // 1. FETCH MOVIES
+  //  FETCH MOVIES
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
@@ -40,7 +40,7 @@ function Movies() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage, selectedCategory]);
 
-  // 2. FETCH CATEGORIES
+  //  FETCH CATEGORIES
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -53,7 +53,7 @@ function Movies() {
     fetchCategories();
   }, []);
 
-  // 3. JUMP LOGIC (Button skip)
+  //  JUMP LOGIC (Button skip)
   const handleJump = (amount) => {
     let newPage = currentPage + amount;
     if (newPage < 1) newPage = 1;
@@ -131,7 +131,7 @@ function Movies() {
               ))}
             </div>
 
-            {/* --- PAGINATION CONTROLS --- */}
+            {/*  PAGINATION CONTROLS  */}
             {totalPages > 1 && (
               <div className="mt-16 flex flex-col items-center gap-6">
                 <div className="flex items-center gap-2 md:gap-4">
@@ -154,7 +154,7 @@ function Movies() {
                     Prev
                   </button>
 
-                  {/* --- FIXED INTERVAL DROPDOWN --- */}
+                  {/*  FIXED INTERVAL DROPDOWN  */}
                   <div className="relative group">
                     <select 
                       value={currentPage}

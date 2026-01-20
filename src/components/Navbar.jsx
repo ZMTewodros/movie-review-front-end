@@ -35,6 +35,7 @@ function Navbar() {
             >
               Logout
             </button>
+            
           </>
         )}
       </div>

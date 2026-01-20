@@ -8,7 +8,7 @@ function MovieCard({ movie }) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 flex flex-col border border-gray-100 group">
-      {/* 1. IMAGE CONTAINER WITH RATING BADGE */}
+      {/* IMAGE CONTAINER WITH RATING BADGE */}
       <div className="relative mb-4 overflow-hidden rounded-lg">
         <img
           src={movie.image}
@@ -23,7 +23,7 @@ function MovieCard({ movie }) {
         </div>
       </div>
 
-      {/* 2. MOVIE INFO */}
+      {/* MOVIE INFO */}
       <h2 className="font-bold text-lg mb-1 text-gray-900 truncate">{movie.title}</h2>
       
       <div className="space-y-0.5 text-sm mb-4">
@@ -38,7 +38,7 @@ function MovieCard({ movie }) {
         </p>
       </div>
 
-      {/* 3. ACTION BUTTON */}
+      {/* ACTION BUTTON */}
       <Link
         to={`/movies/${movie.id}`}
         className="mt-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-center transition-colors text-sm"

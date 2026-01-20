@@ -68,7 +68,7 @@ function ManageUsers() {
     <div className="p-8 max-w-6xl mx-auto">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold text-gray-800 text-center">User Management</h2>
-        {/* "Logged in as" badge has been removed from here */}
+      
         <div className="text-sm text-gray-400">
           Total Users: {users.length}
         </div>

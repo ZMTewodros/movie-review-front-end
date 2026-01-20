@@ -206,7 +206,7 @@ function ManageMovies() {
         )}
       </div>
 
-      {/* --- ADD/EDIT MODAL --- */}
+      {/* ADD/EDIT MODAL  */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl">
@@ -245,7 +245,7 @@ function ManageMovies() {
         </div>
       )}
 
-      {/* --- REVIEW VIEW MODAL (FIXED TO SHOW NAMES) --- */}
+      {/* REVIEW VIEW MODAL (FIXED TO SHOW NAMES)  */}
       {showReviewModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 z-[60]">
           <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl">

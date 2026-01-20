@@ -19,10 +19,7 @@ function AdminLayout() {
     { to: "/admin/movies", label: "Manage Movies", icon: <Film size={20} /> },
   ];
 
-  // Only Super Admin sees Add Admin (optional)
-  // if (isSuperAdmin) {
-  //   navLinks.push({ to: "/admin/add-admin", label: "Add Admin", icon: <UserPlus size={20} /> });
-  // }
+
 
   const handleLogout = () => {
     localStorage.clear();
@@ -59,15 +56,7 @@ function AdminLayout() {
           </ul>
         </nav>
 
-        {/* LOGOUT BUTTON ONLY HERE */}
-        {/* <div className="p-4 border-t border-slate-800 mt-auto">
-          <button 
-            onClick={handleLogout} 
-            className="w-full flex items-center justify-center gap-2 p-3 bg-red-600/10 text-red-500 hover:bg-red-600 hover:text-white rounded-xl transition-all font-bold text-sm"
-          >
-            <LogOut size={18} /> LOGOUT
-          </button>
-        </div> */}
+        
       </aside>
 
       {/* MAIN CONTENT AREA */}
